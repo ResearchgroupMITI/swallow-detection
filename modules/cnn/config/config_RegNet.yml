@@ -1,0 +1,65 @@
+# ----------
+# PATH SETUP
+# ----------
+data_root : ../data/
+module : cnn.swallow_detection.FeatureExtraction
+model : RegNet.RegNetModel
+dataset : cnn.dataset.SwallowDataset
+
+# ----------
+# MODULES
+# ----------
+num_workers: 0
+output_path: logs
+max_epochs: 1
+min_epochs: 1
+learning_rate: 0.003
+batch_size: 64
+early_stopping: True
+early_stopping_mode: min
+early_stopping_metric: val_loss
+early_stopping_patience: 5
+early_stopping_delta: 0.01
+save_model_mode: max
+save_model_metric: val_f1
+save_best_model: True
+test_model: True
+
+# ----------
+# WEIGHTS and BIAS
+# ----------
+wandb_mode: online                                                              # online, offline, disabled
+wandb_project_name: Test_Swallo
+subproject_name: RegNet
+use_deterministic_torch_algorithms: False
+
+# ----------
+# MODELL
+# ----------
+model_name: RegNet
+pretrained: True
+dropout_rate: 0.1
+weight_decay: 0.001
+
+# ----------
+# DATASET
+# ----------
+resize_type: 224x224
+num_classes: 2                                                                  # number of ouput classes
+num_patients: 25                                                                # number of data samples
+
+# ----------
+# TEST SETUP
+# ----------
+man_data_path: ../data/sensors/
+imp_data_path: ../data/impedance/
+
+window_size: 500
+rolling_window_size: 500
+step_size: 1
+test_batch_size: 128
+threshold: 0.2
+min_distance: 200                                                               # minimal distance between two swallows
+det_distance: 400
+min_length: 2                                                                   # minimal length of swallow
+save_output: True                                                               # save detected swallows in pickle file

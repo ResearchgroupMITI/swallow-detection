@@ -1,0 +1,6 @@
+splits:
+  - validation: [5,7,10,20,21]  # Validation patient indices for split 1
+  - validation: [12,19,22,23,25]  # Validation patient indices for split 2
+  - validation: [3,6,11,15,17]  # Validation patient indices for split 3
+  - validation: [2,9,13,14,18]  # Validation patient indices for split 4
+  - validation: [1,4,8,16,24]  # Validation patient indices for split 5
